@@ -29,8 +29,10 @@ bitcoind.get("/status", function(req, res){
       if(!error){
           info.blockchainSize = size;
           res.status(200).json(info).end();
+      } else {
+          info.blockchainSize = 0;
+          res.status(200).json(info).end();
       }
-      else res.status(400).json(error).end();
   });
 });
 
